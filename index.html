@@ -10,22 +10,39 @@
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/main.js"></script>
 </head>
-<body>
+<body class="bg-yellow-100 min-h-screen">
+<header class="bg-orange-400 text-black text-center py-10 px-4">
+    <h1 class="text-4xl font-bold mb-3">
+        Carnet de recettes
+    </h1>
 
-    <header>
-        <h1>Carnet de recettes</h1>
-        <p>Découvrez et partagez vos recettes préférées.</p>
-    </header>
+    <p class="text-lg">
+        Découvrez et partagez vos recettes préférées.
+    </p>
+</header>
 
-    <main>
-        <section id="recipes-section">
-            <h2>Nos recettes</h2>
+<main class="max-w-7xl mx-auto px-4 py-10">
 
-            <p id="recipes-count">0 recettes</p>
+    <section id="recipes-section">
 
-            <div id="recipes-list"></div>
-        </section>
-    </main>
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">
+                Nos recettes
+            </h2>
+
+            <p id="recipes-count"
+              class="bg-orange-400 text-black-500 px-4 py-2 rounded-full font-semibold">
+                0 recettes
+            </p>
+        </div>
+
+        <div id="recipes-list"
+             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        </div>
+
+    </section>
+
+</main>
 
 </body>
 </html>

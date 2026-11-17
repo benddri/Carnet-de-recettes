@@ -1,7 +1,14 @@
-import axios from "axios";
+import { getRecipes } from "./api.js";
+import "../css/style.css";
+import { afficherRecettes } from "./affichage.js";
 
-console.log("gff");
+export async function afficher() {
+  const data = await getRecipes();
+  afficherRecettes(data.recipes);
+console.log(data.recipes);
+    
+}
+afficher()
 
-axios.get("https://dummyjson.com/recipes")
-    .then(console.log)
-    .catch(console.error);
+
+  
