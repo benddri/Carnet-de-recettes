@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,39 +10,45 @@
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/main.js"></script>
 </head>
+
 <body class="bg-yellow-100 min-h-screen">
-<header class="bg-orange-400 text-black text-center py-10 px-4">
-    <h1 class="text-4xl font-bold mb-3">
-        Carnet de recettes
-    </h1>
+    <header class="bg-orange-400 text-black text-center py-10 px-4">
+        <h1 class="text-4xl font-bold mb-3">
+            Carnet de recettes
+        </h1>
 
-    <p class="text-lg">
-        Découvrez et partagez vos recettes préférées.
-    </p>
-</header>
+        <p class="text-lg">
+            Découvrez et partagez vos recettes préférées.
+        </p>
+    </header>
 
-<main class="max-w-7xl mx-auto px-4 py-10">
+    <main class="max-w-7xl mx-auto px-4 py-10">
 
-    <section id="recipes-section">
+        <section id="recipes-section">
+            <div class=" gap-3 mb-4 mx-8  text-center">
+                <input type="text" id="search-input"  class="bg-amber-100  w-150 rounded-2xl px-4 py-3 border-3" placeholder="Recherche une recette ...">
+                <button id="search-btn" class="bg-orange-400  px-6 py-3 rounded-lg font-semibold">Recherche</button>
+            </div>
 
-        <div class="flex justify-between items-center mb-8">
-            <h2 class="text-3xl font-bold text-gray-800">
-                Nos recettes
-            </h2>
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">
+                    Nos recettes
+                </h2>
 
-            <p id="recipes-count"
-              class="bg-orange-400 text-black-500 px-4 py-2 rounded-full font-semibold">
-                0 recettes
-            </p>
-        </div>
+                <p id="recipes-count" class="bg-orange-400 text-black-500 px-4 py-2 rounded-full font-semibold">
+                    0 recettes
+                </p>
+            </div>
 
-        <div id="recipes-list"
-             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        </div>
+            <div id="recipes-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
 
-    </section>
 
-</main>
+        </section>
+
+
+    </main>
 
 </body>
+
 </html>

@@ -2,8 +2,8 @@ export function afficherRecettes(recipes) {
      const recipesListe = document.querySelector("#recipes-list");
      const recipesCount = document.querySelector("#recipes-count");
 
-
      recipesCount.textContent = `${recipes.length} Recettes`
+      recipesListe.textContent = "";
      recipes.forEach(recipe => {
           const card = document.createElement("div");
           card.className = "bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300";
@@ -18,7 +18,7 @@ export function afficherRecettes(recipes) {
           const image = document.createElement("img")
           image.src = recipe.image
           image.alt = recipe.name
-          image.className = "w-full h-56 object-conver bg-gray-100";
+          image.className = "w-full  object-cover bg-gray-100";
 
           const cuisine = document.createElement("p")
           cuisine.textContent = `Cuisine : ${recipe.cuisine}`;

@@ -11,3 +11,9 @@ export async function getRecipes() {
     return response.data
     
 }
+export async function searchData(query){
+  const response=await instance.get(`/recipes/search?q=${query}`)
+  return response.data
+}
+const data = await searchData("");
+console.log(data);
