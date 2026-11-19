@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,103 +7,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carnet de recettes</title>
 
-
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/main.js"></script>
 </head>
 
-<body class="bg-yellow-100 min-h-screen">
-    <header class="bg-orange-400 text-black text-center py-10 px-4">
-        <h1 class="text-4xl font-bold mb-3">
-            Carnet de recettes
-        </h1>
+<body class="bg-[#FFF9F2] min-h-screen text-gray-800">
 
-        <p class="text-lg">
-            Découvrez et partagez vos recettes préférées.
-        </p>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-orange-500 to-amber-400 text-white">
+        <div class="max-w-7xl mx-auto px-6 py-14 text-center">
+            <p class="text-sm uppercase tracking-[0.3em] font-semibold mb-3 text-orange-100">
+                Bienvenue dans votre cuisine
+            </p>
+
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+                🍽️ Carnet de recettes
+            </h1>
+
+            <p class="text-orange-50 text-lg max-w-xl mx-auto">
+                Découvrez, recherchez et partagez vos recettes préférées.
+            </p>
+        </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-10">
-        <section class="bg-amber-50 p-6 rounded-xl shadow-md mb-8">
-            <h2 class="text-2xl font-bold mb-5">Ajouter une recette</h2>
-            <form id="recipe-from">
-                <div class="mb-4">
+    <main class="max-w-7xl mx-auto px-5 md:px-8 py-12">
+
+        <!-- Formulaire -->
+        <section class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-orange-100 mb-14">
+
+            <div class="mb-8">
+                <span class="text-orange-500 font-semibold text-sm uppercase tracking-wider">
+                    Nouvelle recette
+                </span>
+
+                <h2 class="text-2xl md:text-3xl font-bold mt-2">
+                    Ajouter une recette
+                </h2>
+
+                <p class="text-gray-500 mt-2">
+                    Remplissez les informations pour ajouter votre recette.
+                </p>
+            </div>
+
+            <form id="recipe-form">
+
+                <div class="mb-5">
                     <label for="recipe-nom" class="block mb-2 font-semibold">
-                        Nom de la recette :
+                        Nom de la recette
                     </label>
 
-                    <input type="text" id="recipe-nom" class="w-full border rounded-lg p-3"
-                        placeholder="Entrez le nom de la recette">
+                    <input
+                        type="text"
+                        id="recipe-nom"
+                        class="w-full border border-gray-200 rounded-xl p-3 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
+                        placeholder="Ex: Pizza Margherita"
+                    >
 
-                    <p id="name-error" class="text-red-500 text-sm mt-1"></p>
+                    <p id="name-error" class="text-red-500 text-sm mt-2"></p>
                 </div>
-                <div class="mb-4">
+
+                <div class="mb-5">
                     <label for="recipe-cuisine" class="block mb-2 font-semibold">
-                        Cuisine :
+                        Cuisine
                     </label>
 
-                    <input type="text" id="recipe-cuisine" class="w-full border rounded-lg p-3"
-                        placeholder="Ex: Italian, Moroccan...">
+                    <input
+                        type="text"
+                        id="recipe-cuisine"
+                        class="w-full border border-gray-200 rounded-xl p-3 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
+                        placeholder="Ex: Italian, Moroccan..."
+                    >
 
-                    <p id="cuisine-error" class="text-red-500 text-sm mt-1"></p>
+                    <p id="cuisine-error" class="text-red-500 text-sm mt-2"></p>
                 </div>
-                <div class="mb-4">
+
+                <div class="mb-5">
                     <label for="difficulte" class="block mb-2 font-semibold">
-                        Difficulté :
+                        Difficulté
                     </label>
 
-                    <select id="difficulte" class="w-full border rounded-lg p-3">
+                    <select
+                        id="difficulte"
+                        class="w-full border border-gray-200 rounded-xl p-3 bg-white outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
+                    >
                         <option value="">Choisir une difficulté</option>
                         <option value="Easy">Facile</option>
                         <option value="Medium">Moyenne</option>
                         <option value="Hard">Difficile</option>
                     </select>
 
-                    <p id="difficulte-error" class="text-red-500 text-sm mt-1"></p>
+                    <p id="difficulte-error" class="text-red-500 text-sm mt-2"></p>
                 </div>
-                <div class="mb-4">
+
+                <div class="mb-6">
                     <label for="temps" class="block mb-2 font-semibold">
-                        Temps de préparation (minutes) :
+                        Temps de préparation (minutes)
                     </label>
 
-                    <input type="number" id="temps" class="w-full border rounded-lg p-3" placeholder="Ex: 30" min="1"
-                        max="300">
+                    <input
+                        type="number"
+                        id="temps"
+                        min="1"
+                        max="300"
+                        class="w-full border border-gray-200 rounded-xl p-3 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
+                        placeholder="Ex: 30"
+                    >
 
-                    <p id="temps-error" class="text-red-500 text-sm mt-1"></p>
+                    <p id="temps-error" class="text-red-500 text-sm mt-2"></p>
                 </div>
 
-                <button type="submit" id="add-recipe-btn" class="bg-orange-400 px-6 py-3 rounded-lg font-semibold">
-                    Ajouter la recette
+                <button
+                    type="submit"
+                    id="add-recipe-btn"
+                    class="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition duration-300"
+                >
+                    + Ajouter la recette
                 </button>
+                <p id="success-message" class="text-green-600 mt-3"></p>
+
             </form>
         </section>
 
+        <!-- Liste des recettes -->
         <section id="recipes-section">
-            <div class=" gap-3 mb-4 mx-8  text-center">
-                <input type="text" id="search-input" class="bg-amber-100  w-150 rounded-2xl px-4 py-3 border-3"
-                    placeholder="Recherche une recette ...">
-                <button id="search-btn" class="bg-orange-400  px-6 py-3 rounded-lg font-semibold">Recherche</button>
+
+            <div class="mb-8">
+                <span class="text-orange-500 font-semibold text-sm uppercase tracking-wider">
+                    Notre collection
+                </span>
+
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mt-2">
+
+                    <h2 class="text-3xl font-extrabold">
+                        Nos recettes
+                    </h2>
+
+                    <p
+                        id="recipes-count"
+                        class="bg-orange-100 text-orange-700 px-5 py-2 rounded-full font-semibold text-sm w-fit"
+                    >
+                        0 recettes
+                    </p>
+
+                </div>
             </div>
 
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-3xl font-bold text-gray-800">
-                    Nos recettes
-                </h2>
+            <!-- Recherche -->
+            <div class="flex flex-col sm:flex-row gap-3 mb-8">
 
-                <p id="recipes-count" class="bg-orange-400 text-black-500 px-4 py-2 rounded-full font-semibold">
-                    0 recettes
-                </p>
+                <input
+                    type="text"
+                    id="search-input"
+                    class="flex-1 min-w-0 bg-white border border-gray-200 rounded-xl px-5 py-3 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
+                    placeholder="🔍 Rechercher une recette..."
+                >
+
+                <button
+                    id="search-btn"
+                    class="bg-gray-900 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-semibold transition duration-300"
+                    type="button"
+                >
+                    Rechercher
+                </button>
+
             </div>
 
-            <div id="recipes-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards -->
+            <div
+                id="recipes-list"
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"
+            >
             </div>
-
 
         </section>
 
-
     </main>
 
-</body>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 text-center py-6 mt-16">
+        <p class="text-sm">
+            © 2026 Carnet de recettes — Fait avec ❤️
+        </p>
+    </footer>
 
+</body>
 </html>

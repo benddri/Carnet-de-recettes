@@ -1,19 +1,26 @@
+
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://dummyjson.com",
-  timeout: 5000,
-
-
+    baseURL: "https://dummyjson.com",
+    timeout: 5000,
 });
+
 export async function getRecipes() {
-    const response= await instance.get("/recipes?limit=12")
-    return response.data
-    
+    const response = await instance.get("/recipes?limit=12");
+    return response.data;
 }
-export async function searchData(query){
-  const response=await instance.get(`/recipes/search?q=${query}`)
-  return response.data
+
+export async function searchData(query) {
+    const response = await instance.get("/recipes/search", {
+        params: {
+            q: query
+        }
+    });
+    return response.data;
 }
-const data = await searchData("");
-console.log(data);
+
+export async function addRecipe(recipe) {
+    const response = await instance.post("/recipes/add", recipe);
+    return response.data;
+}
