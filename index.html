@@ -23,10 +23,64 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 py-10">
+        <section class="bg-amber-50 p-6 rounded-xl shadow-md mb-8">
+            <h2 class="text-2xl font-bold mb-5">Ajouter une recette</h2>
+            <form id="recipe-from">
+                <div class="mb-4">
+                    <label for="recipe-nom" class="block mb-2 font-semibold">
+                        Nom de la recette :
+                    </label>
+
+                    <input type="text" id="recipe-nom" class="w-full border rounded-lg p-3"
+                        placeholder="Entrez le nom de la recette">
+
+                    <p id="name-error" class="text-red-500 text-sm mt-1"></p>
+                </div>
+                <div class="mb-4">
+                    <label for="recipe-cuisine" class="block mb-2 font-semibold">
+                        Cuisine :
+                    </label>
+
+                    <input type="text" id="recipe-cuisine" class="w-full border rounded-lg p-3"
+                        placeholder="Ex: Italian, Moroccan...">
+
+                    <p id="cuisine-error" class="text-red-500 text-sm mt-1"></p>
+                </div>
+                <div class="mb-4">
+                    <label for="difficulte" class="block mb-2 font-semibold">
+                        Difficulté :
+                    </label>
+
+                    <select id="difficulte" class="w-full border rounded-lg p-3">
+                        <option value="">Choisir une difficulté</option>
+                        <option value="Easy">Facile</option>
+                        <option value="Medium">Moyenne</option>
+                        <option value="Hard">Difficile</option>
+                    </select>
+
+                    <p id="difficulte-error" class="text-red-500 text-sm mt-1"></p>
+                </div>
+                <div class="mb-4">
+                    <label for="temps" class="block mb-2 font-semibold">
+                        Temps de préparation (minutes) :
+                    </label>
+
+                    <input type="number" id="temps" class="w-full border rounded-lg p-3" placeholder="Ex: 30" min="1"
+                        max="300">
+
+                    <p id="temps-error" class="text-red-500 text-sm mt-1"></p>
+                </div>
+
+                <button type="submit" id="add-recipe-btn" class="bg-orange-400 px-6 py-3 rounded-lg font-semibold">
+                    Ajouter la recette
+                </button>
+            </form>
+        </section>
 
         <section id="recipes-section">
             <div class=" gap-3 mb-4 mx-8  text-center">
-                <input type="text" id="search-input"  class="bg-amber-100  w-150 rounded-2xl px-4 py-3 border-3" placeholder="Recherche une recette ...">
+                <input type="text" id="search-input" class="bg-amber-100  w-150 rounded-2xl px-4 py-3 border-3"
+                    placeholder="Recherche une recette ...">
                 <button id="search-btn" class="bg-orange-400  px-6 py-3 rounded-lg font-semibold">Recherche</button>
             </div>
 
