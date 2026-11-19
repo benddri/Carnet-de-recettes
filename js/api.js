@@ -24,3 +24,7 @@ export async function addRecipe(recipe) {
     const response = await instance.post("/recipes/add", recipe);
     return response.data;
 }
+export async function deleteRecipe(id) {
+    const response = await instance.delete(`/recipes/${id}`);
+    return response.data;
+}
