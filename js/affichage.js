@@ -1,15 +1,13 @@
+
 import { deleteRecipe } from "./api.js";
+
 export function creerCarte(recipe) {
+
+    // Carte principale
     const card = document.createElement("div");
-    card.className = "bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300";
+    card.className = "group bg-white rounded-2xl shadow-md overflow-hidden border border-orange-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col ";
 
-    const info = document.createElement("div");
-    info.className = "p-5";
-
-    const name = document.createElement("h3");
-    name.textContent = recipe.name;
-    name.className = "text-xl font-bold text-gray-800 mb-3";
-
+    // Image
     const image = document.createElement("img");
 
     if (recipe.image) {
@@ -19,54 +17,75 @@ export function creerCarte(recipe) {
     }
 
     image.alt = recipe.name;
-    image.className = "w-full object-cover bg-gray-100";
+    image.loading = "lazy";
+   
+   image.className = "w-full  object-cover bg-orange-50 group-hover:scale-105 transition-transform duration-500";
 
+    // Contenu
+    const info = document.createElement("div");
+   info.className = "p-4 flex flex-col flex-1";
+
+    // Nom
+    const name = document.createElement("h3");
+    name.textContent = recipe.name;
+    name.className = "text-lg font-bold text-gray-900 mb-2 line-clamp-2";
+
+    // Cuisine
     const cuisine = document.createElement("p");
     cuisine.textContent = `Cuisine : ${recipe.cuisine}`;
-    cuisine.className = "text-gray-600 mb-2";
+    cuisine.className = "text-gray-600 text-sm mb-3";
 
+    // Difficulté
     const difficulty = document.createElement("p");
     difficulty.textContent = `Difficulté : ${recipe.difficulty || "Non précisée"}`;
-    difficulty.className = "text-gray-600 mb-2";
+    difficulty.className = "text-gray-600 text-sm mb-3";
 
+    // Temps de préparation
     const prepTimeMinutes = document.createElement("p");
     prepTimeMinutes.textContent = `Temps de préparation : ${recipe.prepTimeMinutes} min`;
-    prepTimeMinutes.className = "text-yellow-700 font-semibold";
-    const supprimerbtn = document.createElement("button")
-    supprimerbtn.textContent = `Supprimer`
-    supprimerbtn.className = "bg-orange-600 hover:bg-gray-600 text-white px-8 py-3 rounded-xl font-semibold "
-    supprimerbtn.type = "button"
+    prepTimeMinutes.className = "text-orange-700 font-semibold text-sm mb-5";
+
+    // Bouton supprimer
+    const supprimerbtn = document.createElement("button");
+    supprimerbtn.textContent = "Supprimer";
+    supprimerbtn.className = "mt-auto w-full bg-orange-500 hover:bg-red-600 text-white px-5 py-3 rounded-xl font-semibold transition duration-300 focus:outline-none focus:ring-2 focus:ring-orange-300";
+    supprimerbtn.type = "button";
     supprimerbtn.dataset.id = recipe.id;
+
     supprimerbtn.addEventListener("click", async () => {
-    const confirmation = confirm("Voulez-vous vraiment supprimer cette recette ?");
 
-    if (!confirmation) {
-        return;
-    }
+        const confirmation = confirm(
+            "Voulez-vous vraiment supprimer cette recette ?"
+        );
 
-    try {
-        const resultat = await deleteRecipe(recipe.id);
+        if (!confirmation) {
+            return;
+        }
 
-        card.remove();
+        try {
+            await deleteRecipe(recipe.id);
 
-        const recipesCount = document.querySelector("#recipes-count");
-        const recipesListe = document.querySelector("#recipes-list");
+            card.remove();
 
-        recipesCount.textContent = `${recipesListe.children.length} Recettes`;
+            const recipesCount = document.querySelector("#recipes-count");
+            const recipesListe = document.querySelector("#recipes-list");
 
-        alert("Recette supprimée avec succès !");
+            recipesCount.textContent = `${recipesListe.children.length} Recettes`;
 
-    } catch (error) {
-        console.log("Erreur :", error);
-        alert("Erreur lors de la suppression.");
-    }
-});
+            alert("Recette supprimée avec succès !");
 
+        } catch (error) {
+            console.log("Erreur :", error);
+            alert("Erreur lors de la suppression.");
+        }
+    });
+
+    // Ajouter les éléments
     info.appendChild(name);
     info.appendChild(cuisine);
     info.appendChild(difficulty);
     info.appendChild(prepTimeMinutes);
-    info.appendChild(supprimerbtn)
+    info.appendChild(supprimerbtn);
 
     card.appendChild(image);
     card.appendChild(info);
@@ -74,7 +93,10 @@ export function creerCarte(recipe) {
     return card;
 }
 
+
+// Afficher toutes les recettes
 export function afficherRecettes(recipes) {
+
     const recipesListe = document.querySelector("#recipes-list");
     const recipesCount = document.querySelector("#recipes-count");
 
@@ -88,7 +110,10 @@ export function afficherRecettes(recipes) {
     recipesCount.textContent = `${recipes.length} Recettes`;
 }
 
+
+// Ajouter une recette en tête de liste
 export function ajouterRecetteEnTete(recipe) {
+
     const recipesListe = document.querySelector("#recipes-list");
     const recipesCount = document.querySelector("#recipes-count");
 
